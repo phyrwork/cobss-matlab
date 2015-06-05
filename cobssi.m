@@ -4,24 +4,24 @@ classdef cobssi < handle
     % http://www.stuartcheshire.org/papers/cobsforton.pdf for algorithm
     % details
     
-    properties
+    properties (Access = private)
         data = uint8.empty;
-        code = 1; % 
-        count = 0; %
+        code = 0; % used to decide whether to add '0' following EOB
+        count = 0; % number of values before EOB
     end
     
     methods        
         function obj = push(obj, data)
             if obj.count == 0 % read a new stuffing code
                 obj.code = data;
-                obj.count = obj.code - 1;
+                obj.count = obj.code - 1; % code, n, indicates n-1 values before EOB
             else
                 obj.data(end+1) = data;
-                obj.count = obj.count - 1;
+                obj.count = obj.count - 1; % one less value before EOB
             end
             
-            if obj.count == 0 && obj.code ~= 255
-                obj.data(end+1) = 0;
+            if obj.count == 0 && obj.code ~= 255 % 254 = n-1 = maximum block length.
+                obj.data(end+1) = 0; % no '0' after 254 block length
             end
         end
         
