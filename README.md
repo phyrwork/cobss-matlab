@@ -15,25 +15,26 @@ Due to the coding having a small amount of memory (counting values between '0') 
 
 **cobss** --- encoder
 
-```encoder = cobss; % instantiate an encoder object
+	encoder = cobss; % instantiate an encoder object
 
-encoder.push(byte); % push the next byte in the message onto the encoder
+	encoder.push(byte); % push the next byte in the message onto the encoder
 
-coded_msg = encoder.get; % return the coded message```
+	coded_msg = encoder.get; % return the coded message
 
 The get() message returns the valid coded equivalent of the data processed up until that point. If desired you may continue to push data and get() again at any time.
 
 There is no reset - just create a new instance.
 
+
 **cobssi** --- decoder
 
-```decoder = cobssi; % instantiate a decoder object
+	decoder = cobssi; % instantiate a decoder object
 
-decoder.push(byte); % push the next byte in a coded message onto the decoder
+	decoder.push(byte); % push the next byte in a coded message onto the decoder
 
-decoded_preview = decoder.peek; % return a preview of a decoded message partial
+	decoded_preview = decoder.peek; % return a preview of a decoded message partial
 
-decoded_msg = decoder.get; % return the decoded message```
+	decoded_msg = decoder.get; % return the decoded message
 
 The peek() method will return whatever has been decoded so far regardless of whether it is a valid message.
 
