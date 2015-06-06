@@ -7,7 +7,7 @@ This is a streaming (byte-wise) implementation for MATLAB for use in practical o
 
 In memory-restricted hardware applications, a streaming approach can require much less memory than the block coded approach which requires memory for nearly twice the encoded message size.
 
-I developed this specifically for use in my half-duplex [CSMA/CA for Serial Peripheral Interface (SPI)](https://github.com/phyrwork/csma-ca-spi) project, which I am modelling in MATLAB before a hardware implementation. My MATLAB implementation of the faster, block coded approach is also available: [Consistent Overhead Byte Stuffing (COBS) for MATLAB]()
+I developed this specifically for use in my half-duplex [CSMA/CA for Serial Peripheral Interface (SPI)](https://github.com/phyrwork/csma-ca-spi) project, which I am modelling in MATLAB before a hardware implementation. My MATLAB implementation of the faster, block coded approach is also available: [Consistent Overhead Byte Stuffing (COBS) for MATLAB](https://github.com/phyrwork/cobs-matlab)
 
 # Usage
 
